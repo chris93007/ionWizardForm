@@ -1,0 +1,21 @@
+<ion-view title="Expenses" id="page6" class=" ">
+    <ion-content padding="true" class="has-header">
+
+            <div ng-repeat='expense in expenses'>
+              <div class="item item-body " id="expenses-list-item-container6" ng-click="updateExpense(expense.id)">
+
+                  <div>
+                      <div id="wrapper">
+                          <div id="expensesInner1">{{expense.description}}</div>
+
+                          <br>
+                          <div id="expensesInner1">{{expense.category}}</div>
+                          <div id="expensesInner2">{{expense.amount}}</div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <a ui-sref="app.addNewExpense" id="expenses-button2" style="border-radius:20px 20px 20px 20px;" class=" button button-positive button-large button-block button-clear icon-right ion-android-add "></a>   
+
+ </ion-content>
+</ion-view>

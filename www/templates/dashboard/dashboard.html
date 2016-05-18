@@ -1,0 +1,70 @@
+<ion-view title="Dashboard" id="page5" class=" dashboardClass">
+    <ion-content padding="true" class="has-header">
+        <div class="list card " id="dashboard-card23">
+            <div class="item item-body dashboard" id="dashboard-list-item-container3">
+                <div>
+                    <div>
+                        <div style="padding:20%">
+                            <p style="color:blue;text-align:center;font-size: 30px">
+                                Can Spend</p>
+                            <br>
+                            <p style="font-size: 38px;text-align:center">{{overview.canSpend| currency}}</p>
+                        </div>
+                        <div id="wrapper">
+                            <div class="dashboard-averages">Can Spend Average</div>
+                            <br>
+                            <div class="dashboard-averages">{{overview.canSpendAverage | currency}}</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list card " id="dashboard-card21">
+                <div class="item item-body " id="dashboard-list-item-container12">
+                    <div>
+                        <div>
+                            <div style="padding:5%">
+                                <p class="dashboard-balances">Monthly Balance</p>
+                                 <p class="dashboard-balances">{{overview.balance| currency}}</p>
+
+                            </div>
+                            <div id="wrapper">
+                                <div class="dashboard-averages">Average Balance</div>
+
+                                <br>
+                                <div class="dashboard-averages">{{overview.balanceAverage | currency}}</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-body " id="dashboard-list-item-container13">
+                <ion-list id="dashboard-list2" class=" ">
+                    <ion-item id="dashboard-list-item11" ui-sref="app.expenses" class="  ">Monthly Expense
+                        <span class="item-note">{{overview.expenses| currency}}</span>
+                    </ion-item>
+                </ion-list>
+                <div>
+                    <div>
+                        <div id="wrapper">
+                            <div class="dashboard-averages">Average Monthly Expense</div>
+
+                            <br>
+                            <div class="dashboard-averages">{{overview.expenseAverage|currency}}</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-body " id="dashboard-list-item-container14">
+                <ion-list id="dashboard-list3" class=" ">
+                    <ion-item id="dashboard-list-item12" ui-sref="app.goals" class="  ">Goals
+                        <span class="item-note">{{overview.savedInGoals| currency}}</span>
+                    </ion-item>
+                </ion-list>
+                <p id="dashboard-markdown3" style="margin-top:0px;color:#000000;" class=" ">//Progress Bar//</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
