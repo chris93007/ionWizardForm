@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
 
-.controller('dashboardCtrl', ['$scope', '$http','baseUrl' ,function($scope,$http,baseUrl) {
+.controller('dashboardCtrl', ['$scope', '$http','baseUrl','$state' ,function($scope,$http,baseUrl,$state) {
 
 
 
@@ -8,17 +8,32 @@ angular.module('starter.controllers')
     $scope.overview=data;
   });
 
-
 ///////////////
+Chart.defaults.global.legend.display = false;
+var ctx = document.getElementById("overviewChart").getContext("2d");
+var gradient = ctx.createLinearGradient(0, 0, 0, 500);
+    gradient.addColorStop(0, 'rgba(25,32,71,1)');
+    gradient.addColorStop(1, 'rgba(19,25,62,0)');
+var overviewChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            fillColor: gradient,
+            label: '# of Votes',
+            data: [12, 19, 13, 9, 12, 3]
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                display:false
+            }],
+            xAxes: [{
+                display:false
+            }]
+        }
+    }
+});
 
-
-$scope.graph = {};
-$scope.graph.data = [
-  //Awake
-  [16, 15, 20, 12, 16, 12, 8],
-  //Asleep
-  [8, 9, 4, 12, 8, 12, 14]
-];
-$scope.graph.labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-$scope.graph.series = ['Awake', 'Asleep'];
 }]);

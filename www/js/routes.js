@@ -21,19 +21,16 @@ angular.module('starter')
           'menuContent': {
               templateUrl: 'templates/dashboard/dashboard.html',
               controller: 'dashboardCtrl'
-          },
-          'tab2': {
-              templateUrl: 'templates/dashboard/dashboard.html',
-              controller: 'dashboardCtrl'
           }
+          // 'tab2': {
+          //     templateUrl: 'templates/dashboard/dashboard.html',
+          //     controller: 'dashboardCtrl'
+          // }
       }
   })
 
   .state('app.expenses', {
     url: '/expenses',
-    params:{
-        isAnimated:false
-    },
     views: {
         'menuContent': {
             templateUrl: 'templates/expenses/expenses.html',
@@ -89,10 +86,10 @@ angular.module('starter')
   .state('app.transactions', {
     url: '/transactions',
     views: {
-      'tab1': {
-        templateUrl: 'templates/transactions/transactions.html',
-        controller: 'transactionsCtrl'
-      },
+      // 'tab1': {
+      //   templateUrl: 'templates/transactions/transactions.html',
+      //   controller: 'transactionsCtrl'
+      // },
       'menuContent': {
         templateUrl: 'templates/transactions/transactions.html',
         controller: 'transactionsCtrl'
@@ -103,10 +100,10 @@ angular.module('starter')
   .state('app.settings', {
     url: '/settings',
     views: {
-      'tab3': {
-        templateUrl: 'templates/settings/settings.html',
-        controller: 'settingsCtrl'
-      },
+      // 'tab3': {
+      //   templateUrl: 'templates/settings/settings.html',
+      //   controller: 'settingsCtrl'
+      // },
       'menuContent': {
         templateUrl: 'templates/settings/settings.html',
         controller: 'settingsCtrl'

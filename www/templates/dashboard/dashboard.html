@@ -1,71 +1,74 @@
-<ion-view title="Dashboard" id="page5" class=" dashboardClass">
-    <ion-content padding="true" class="has-header">
-        <div class="list card " id="dashboard-card23">
-            <div class="item item-body dashboard" id="dashboard-list-item-container3">
-                <div>
-                      <canvas id="bar" class="chart chart-line" data="graph.data" labels="graph.labels" series='graph.series' height="50"></canvas>
-                    <div>
-                        <div style="padding:20%">
-                            <p style="color:blue;text-align:center;font-size: 30px">
-                                Can Spend</p>
-                            <br>
-                            <p style="font-size: 36px;text-align:center">{{overview.canSpend| currency}}</p>
-                        </div>
-                        <div id="wrapper">
-                            <div class="dashboard-averages">Can Spend Average</div>
-                            <br>
-                            <div class="dashboard-averages">{{overview.canSpendAverage | currency}}</div>
+<ion-view title="Dashboard" id="expense-dashboard" class="dashboardClass">
 
-                        </div>
+    <!--expense toolbar section-->
+    <md-toolbar class="bar-subheader md-tall md-primary toolbar-expense">
+        <div>
+            <canvas id="overviewChart" class="chart chart-line"></canvas>
+        </div>
+        <div class="dashboard-overview">
+            <h1>Can Spend</h1>
+
+            <h2>{{overview.canSpend| currency}}</h2>
+        </div>
+    </md-toolbar><!--end expense toolbar section-->
+
+    <!--expense content section-->
+    <ion-content id="expense-dashboard-content">
+
+        <!--Below code it will disable animation to better performance-->
+        <div ng-if="!isAnimated" class="list-expense-menu">
+            <div class="list-expense-menu-item">
+                <div class="row">
+                    <div class="col-20">
+                        <i class="fa fa-money"></i>
+                    </div>
+                    <div class="col-80 menu">
+                        <p class="header">Monthly Balance</p>
+
+                        <p class="detail">{{overview.balance| currency}}</p>
+                        <p class="header">Average Balance</p>
+
+                        <p class="detail">{{overview.balanceAverage | currency}}</p>
                     </div>
                 </div>
             </div>
-            <div class="list card " id="dashboard-card21">
-                <div class="item item-body " id="dashboard-list-item-container12">
-                    <div>
-                        <div>
-                            <div style="padding:5%">
-                                <p class="dashboard-balances">Monthly Balance</p>
-                                 <p class="dashboard-balances">{{overview.balance| currency}}</p>
+            <div class="list-expense-menu-item"  ng-click="navigateTo('app.expenses')">
+                <div class="row">
+                    <div class="col-20">
+                        <i class="fa fa-money"></i>
+                    </div>
+                    <div class="col-80 menu">
+                        <p class="header">Monthly Expense</p>
 
-                            </div>
-                            <div id="wrapper">
-                                <div class="dashboard-averages">Average Balance</div>
+                        <p class="detail">{{overview.expenses| currency}}</p>
+                        <p class="header">Average Monthly Expense</p>
 
-                                <br>
-                                <div class="dashboard-averages">{{overview.balanceAverage | currency}}</div>
-
-                            </div>
-                        </div>
+                        <p class="detail">{{overview.expenseAverage|currency}}</p>
                     </div>
                 </div>
             </div>
-            <div class="item item-body " id="dashboard-list-item-container13">
-                <ion-list id="dashboard-list2" class=" ">
-                    <ion-item id="dashboard-list-item11" ui-sref="app.expenses" class="  ">Monthly Expense
-                        <span class="item-note">{{overview.expenses| currency}}</span>
-                    </ion-item>
-                </ion-list>
-                <div>
-                    <div>
-                        <div id="wrapper">
-                            <div class="dashboard-averages">Average Monthly Expense</div>
+            <div class="list-expense-menu-item"  ng-click="navigateTo('app.goals')">
+                <div class="row">
+                    <div class="col-20">
+                        <i class="fa fa-money"></i>
+                    </div>
+                    <div class="col-80 menu">
+                        <p class="header">Goals</p>
 
-                            <br>
-                            <div class="dashboard-averages">{{overview.expenseAverage|currency}}</div>
-
-                        </div>
+                        <p class="detail">{{overview.savedInGoals| currency}}</p>
                     </div>
                 </div>
-            </div>
-            <div class="item item-body " id="dashboard-list-item-container14">
-                <ion-list id="dashboard-list3" class=" ">
-                    <ion-item id="dashboard-list-item12" ui-sref="app.goals" class="  ">Goals
-                        <span class="item-note">{{overview.savedInGoals| currency}}</span>
-                    </ion-item>
-                </ion-list>
-                <p id="dashboard-markdown3" style="margin-top:0px;color:#000000;" class=" ">//Progress Bar//</p>
             </div>
         </div>
-    </ion-content>
+
+    </ion-content><!--end expense content section-->
 </ion-view>
+
+<style>
+.dashboard-overview > h1{
+  font-size: 30px !important;
+}
+.dashboard-overview > h2{
+  font-size: 36px !important;
+}
+</style>

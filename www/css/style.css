@@ -1381,7 +1381,7 @@ md-sidenav {
       margin-top: 9px; }
       #expense-dashboard #expense-dashboard-content div.list-expense-menu div.list-expense-menu-item div.row {
         position: relative;
-        height: 59px;
+        height: 100px;
         padding: 24px;
         border: none;
         border-bottom: 1px solid #E1E1E1; }
