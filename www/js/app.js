@@ -316,4 +316,4 @@ angular.module('starter', ['ionic','ionic.wizard','ngIOS9UIWebViewPatch', 'start
 
 
     })
-    .constant('baseUrl', "http://10.0.1.64:3100/");
+    .constant('baseUrl', "http://10.0.1.226:3100/");
