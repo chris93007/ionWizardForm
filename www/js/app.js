@@ -39,7 +39,7 @@ window.globalVariable = {
 };// End Global variable
 
 
-angular.module('starter', ['ionic','ionic.wizard','ngIOS9UIWebViewPatch', 'starter.controllers', 'starter.services', 'ngMaterial', 'ngMessages', 'ngCordova'])
+angular.module('starter', ['ionic','ionic.wizard','ngIOS9UIWebViewPatch', 'starter.controllers', 'starter.services', 'ngMaterial', 'ngMessages', 'ngCordova','angularChart'])
     .run(function ($ionicPlatform, $cordovaSQLite, $rootScope, $ionicHistory, $state, $mdDialog, $mdBottomSheet) {
 
         //Create database table of contracts by using sqlite database.
@@ -297,8 +297,8 @@ angular.module('starter', ['ionic','ionic.wizard','ngIOS9UIWebViewPatch', 'start
         //Learn more about material theme: https://material.angularjs.org/latest/#/Theming/01_introduction
         $mdThemingProvider
             .theme('default')
-            .primaryPalette('blue')
-            .accentPalette('light-blue');
+            .primaryPalette('indigo')
+            .accentPalette('orange');
 
         appPrimaryColor = $mdColorPalette[$mdThemingProvider._THEMES.default.colors.primary.name]["500"]; //Use for get base color of theme.
 

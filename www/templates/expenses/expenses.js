@@ -8,7 +8,6 @@ angular.module('starter.controllers')
 
   $scope.updateExpense=function(id){
     console.log("redirect to update screen"+id);
-    var expenseInfo={"expenseId":id};
     $state.go('app.updateExpense',{expenseId:id});
   }
 

@@ -6,4 +6,8 @@ angular.module('starter.controllers')
 console.log("update Expense");
 console.log($stateParams);
 
+  $http.get(baseUrl+'api/expenses/'+$stateParams.expenseId).success(function(data){
+    console.log(data);
+  });
+
 }]);

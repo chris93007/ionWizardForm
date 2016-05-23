@@ -66,10 +66,14 @@ angular.module('starter')
   })
 
   .state('app.updateExpense', {
-    url: '/updateExpense',
-    templateUrl: 'templates/updateExpense/updateExpense.html',
-    controller: 'updateExpenseCtrl'
-    
+    url: '/updateExpense/expenseId',
+    views: {
+        'menuContent': {
+            templateUrl: 'templates/updateExpense/updateExpense.html',
+            controller: 'updateExpenseCtrl',
+            params: ['expenseId']
+          }
+    }
   })
 
   .state('app.addNewGoal', {
