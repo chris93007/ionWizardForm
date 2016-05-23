@@ -254,6 +254,7 @@ angular.module('starter', ['ionic','ionic.wizard','ngIOS9UIWebViewPatch', 'start
 
     .config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider, $mdColorPalette, $mdIconProvider) {
 
+        $ionicConfigProvider.views.maxCache(0);
 
         // Use for change ionic spinner to android pattern.
         $ionicConfigProvider.spinner.icon("android");

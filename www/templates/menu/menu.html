@@ -14,7 +14,7 @@
         </ion-nav-bar>
         <!-- TABS -->
 
-        <ion-tabs class="tabs-stable tabs-icon-top " id="tabsController-tabs1">
+        <ion-tabs class="tabs-stable tabs-icon-top {{$root.hideTabs}}" id="tabsController-tabs1">
             <ion-tab title="Transations" icon="ion-android-cart" ng-click="navigateTo('app.transactions')" id="tabsController-tab1" class=" ">
                 <ion-nav-view name="tab1"></ion-nav-view>
             </ion-tab>

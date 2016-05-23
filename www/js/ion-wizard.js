@@ -34,12 +34,12 @@ angular.module('ionic.wizard', [])
             }],
             link: function (scope, element, attrs, controller) {
                 var currentIndex = 0;
-                  console.log("directive")
                 scope.swiperOptions = angular.extend(scope.swiperOptions || {}, {
                     initialSlide: 0,
                     autoHeight: true,
                     onInit: function(swiper){
                         scope.swiper = swiper;
+
                     }
                 });
 
@@ -95,7 +95,7 @@ angular.module('ionic.wizard', [])
             },
             require: '^^ionWizard',
             link: function(scope, element, attrs, controller) {
-                    console.log("directive2")
+
                 var nextFn = function() {
                     // if there's no condition, just set the condition to true, otherwise evaluate
                     return angular.isUndefined(attrs.nextCondition)
@@ -123,7 +123,7 @@ angular.module('ionic.wizard', [])
             restrict: 'EA',
             scope: {},
             link: function(scope, element, attrs, controller) {
-                    console.log("directive3")
+
                 element.addClass('ng-hide');
 
                 element.on('click', function() {
@@ -145,7 +145,7 @@ angular.module('ionic.wizard', [])
             restrict: 'EA',
             scope: {},
             link: function(scope, element, attrs, controller) {
-                    console.log("directive4")
+
                 element.on('click', function() {
                     $rootScope.$broadcast("wizard:Next");
                 });
@@ -168,7 +168,7 @@ angular.module('ionic.wizard', [])
                 startCondition: '&condition'
             },
             link: function(scope, element, attrs) {
-                    console.log("directive5")
+
                 element.addClass('ng-hide');
 
                 function checkCondition() {
