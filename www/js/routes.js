@@ -65,6 +65,13 @@ angular.module('starter')
     }
   })
 
+  .state('app.updateExpense', {
+    url: '/updateExpense',
+    templateUrl: 'templates/updateExpense/updateExpense.html',
+    controller: 'updateExpenseCtrl'
+    
+  })
+
   .state('app.addNewGoal', {
     url: '/addGoal',
     views: {
