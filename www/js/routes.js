@@ -63,7 +63,7 @@ angular.module('starter')
   })
 
   .state('app.updateExpense', {
-    url: '/updateExpense/expenseId',
+    url: '/updateExpense/:expenseId',
     views: {
         'menuContent': {
             templateUrl: 'templates/updateExpense/updateExpense.html',

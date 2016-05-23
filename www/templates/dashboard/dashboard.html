@@ -3,12 +3,12 @@
     <!--expense toolbar section-->
     <md-toolbar class="bar-subheader md-tall md-primary toolbar-expense">
         <div>
-            <canvas id="overviewChart" class="chart chart-line"></canvas>
+            <canvas id="overviewChart" class="chart chart-line" colours="colours"></canvas>
         </div>
         <div class="dashboard-overview">
-            <h1>Can Spend</h1>
+            <h2>Can Spend</h1>
 
-            <h2>{{overview.canSpend| currency}}</h2>
+            <h1>{{overview.canSpend| currency}}</h2>
         </div>
     </md-toolbar><!--end expense toolbar section-->
 
@@ -63,12 +63,3 @@
 
     </ion-content><!--end expense content section-->
 </ion-view>
-
-<style>
-.dashboard-overview > h1{
-  font-size: 30px !important;
-}
-.dashboard-overview > h2{
-  font-size: 36px !important;
-}
-</style>
