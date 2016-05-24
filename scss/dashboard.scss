@@ -66,12 +66,6 @@ $url_background_cover_restaurant_03: url(../img/food_cover_03.png);
       height: 260px !important;
       box-shadow: 0 2px 6px $color_black_20;
 
-      div {
-        padding: 26px 10px 10px 10px;
-        text-align: center;
-        height: inherit !important;
-      }
-
       h1 {
         color: $color_white;
         font-size: 30px;
@@ -136,8 +130,7 @@ $url_background_cover_restaurant_03: url(../img/food_cover_03.png);
         margin-top: 9px;
         div.row {
           position: relative;
-          height: 100px;
-          padding: 24px;
+          padding: 20px;
           border: none;
           border-bottom: 1px solid $color_md_tabs_border;
           div.col-20 {
@@ -169,13 +162,45 @@ $url_background_cover_restaurant_03: url(../img/food_cover_03.png);
     width: 100% !important;
     position:absolute;
     left:0;
-    bottom:0;
+    bottom:15%;
     z-index:-1;
   }
 
   .dashboard-overview{
-    position: absolute;
-    top: 0px;
-    margin: 0 auto;
-    width: 100%;
+    padding:26px 10px 10px 10px;
+    text-align: center;
   }
+  .dashboard-averages{
+    font-size:14px  !important;
+    color:white !important
+  }
+
+.row-item{
+    border: none;
+    border-bottom: 1px solid $color_md_tabs_border;
+}
+
+.row-item-head{
+    padding:3%;
+    font-size:20px;       
+}
+.row-item-detail{
+    padding:3%;
+    font-size:16px;  
+    color:#666666;  
+}
+.row-item-average{
+    font-weight:bold;
+    color:#4C6069;
+    background-color:#ECEFF1; 
+    border: none;
+    border-bottom: 1px solid $color_md_tabs_border;
+}
+
+.improved{
+  color:#5FAC70;
+}
+
+.declined{
+  color:#F16764;
+}

@@ -2,10 +2,6 @@
   max-height: 260px !important;
   height: 260px !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); }
-  #expense-dashboard .toolbar-expense div {
-    padding: 26px 10px 10px 10px;
-    text-align: center;
-    height: inherit !important; }
   #expense-dashboard .toolbar-expense h1 {
     color: white;
     font-size: 30px;
@@ -54,8 +50,7 @@
       margin-top: 9px; }
       #expense-dashboard #expense-dashboard-content div.list-expense-menu div.list-expense-menu-item div.row {
         position: relative;
-        height: 100px;
-        padding: 24px;
+        padding: 20px;
         border: none;
         border-bottom: 1px solid #E1E1E1; }
         #expense-dashboard #expense-dashboard-content div.list-expense-menu div.list-expense-menu-item div.row div.col-20 {
@@ -77,11 +72,39 @@
   width: 100% !important;
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 15%;
   z-index: -1; }
 
 .dashboard-overview {
-  position: absolute;
-  top: 0px;
-  margin: 0 auto;
-  width: 100%; }
+  padding: 26px 10px 10px 10px;
+  text-align: center; }
+
+.dashboard-averages {
+  font-size: 14px  !important;
+  color: white !important; }
+
+.row-item {
+  border: none;
+  border-bottom: 1px solid #E1E1E1; }
+
+.row-item-head {
+  padding: 3%;
+  font-size: 20px; }
+
+.row-item-detail {
+  padding: 3%;
+  font-size: 16px;
+  color: #666666; }
+
+.row-item-average {
+  font-weight: bold;
+  color: #4C6069;
+  background-color: #ECEFF1;
+  border: none;
+  border-bottom: 1px solid #E1E1E1; }
+
+.improved {
+  color: #5FAC70; }
+
+.declined {
+  color: #F16764; }

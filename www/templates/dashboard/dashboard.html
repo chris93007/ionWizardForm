@@ -2,64 +2,133 @@
 
     <!--expense toolbar section-->
     <md-toolbar class="bar-subheader md-tall md-primary toolbar-expense">
+      <div layout="column">
         <div>
-            <canvas id="overviewChart" class="chart chart-line" colours="colours"></canvas>
-        </div>
-        <div class="dashboard-overview">
-            <h2>Can Spend</h1>
+            <div><canvas id="overviewChart" class="chart chart-line" colours="colours"></canvas></div>
 
-            <h1>{{overview.canSpend| currency}}</h2>
-        </div>
-    </md-toolbar><!--end expense toolbar section-->
-
-    <!--expense content section-->
-    <ion-content id="expense-dashboard-content">
-
-        <!--Below code it will disable animation to better performance-->
-        <div ng-if="!isAnimated" class="list-expense-menu">
-            <div class="list-expense-menu-item">
-                <div class="row">
-                    <div class="col-20">
-                        <i class="fa fa-money"></i>
+            <div class="dashboard-overview">
+                <h2>Can Spend</h1>
+                    <h1>{{overview.canSpend | currency:undefined:0}}</h2>
                     </div>
-                    <div class="col-80 menu">
-                        <p class="header">Monthly Balance</p>
 
-                        <p class="detail">{{overview.balance| currency}}</p>
-                        <p class="header">Average Balance</p>
-
-                        <p class="detail">{{overview.balanceAverage | currency}}</p>
-                    </div>
                 </div>
-            </div>
-            <div class="list-expense-menu-item"  ng-click="navigateTo('app.expenses')">
-                <div class="row">
-                    <div class="col-20">
-                        <i class="fa fa-money"></i>
-                    </div>
-                    <div class="col-80 menu">
-                        <p class="header">Monthly Expense</p>
-
-                        <p class="detail">{{overview.expenses| currency}}</p>
-                        <p class="header">Average Monthly Expense</p>
-
-                        <p class="detail">{{overview.expenseAverage|currency}}</p>
-                    </div>
+                <div style="position:absolute;bottom:0; width:100%" layout="row" layout-align="space between center">
+                    <p class="dashboard-averages" style="float:left; padding-left:1%" flex>Monthly Average</p>
+                    <p flex></p>
+                    <p class="dashboard-averages" style="float:right; padding-right:1%" >{{overview.canSpendAverage | currency}} &nbsp;   <i class=" icon" ng-class="(overview.canSpendStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " style=" font-size:18px;"></i></p>
                 </div>
-            </div>
-            <div class="list-expense-menu-item"  ng-click="navigateTo('app.goals')">
-                <div class="row">
-                    <div class="col-20">
-                        <i class="fa fa-money"></i>
-                    </div>
-                    <div class="col-80 menu">
-                        <p class="header">Goals</p>
 
-                        <p class="detail">{{overview.savedInGoals| currency}}</p>
-                    </div>
-                </div>
             </div>
-        </div>
+        </md-toolbar><!--end expense toolbar section-->
 
-    </ion-content><!--end expense content section-->
+        <!--expense content section-->
+        <ion-content id="expense-dashboard-content">
+
+            <!--Balances-->
+            <md-card>
+                <md-content>
+                    <!-- Balance -->
+                    <div layout="row" class="row-item" layout-align="space between center">
+                        <div layout="row" class="row-item-head">
+                           <i class="icon ion-cash pad-right-10"></i>
+                           <p>Balance</p>
+                       </div>
+                       <div layout="row"   class="row-item-head">  
+                           <p ng-class="(overview.balanceStatus=='improve') ? 'improved' : 'declined'">{{overview.balance| currency:undefined:0}}</p> &nbsp;
+                           <i   class=" icon" ng-class="(overview.balanceStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " ></i>
+                       </div> 
+                   </div>  
+
+                   <!-- Credit Limit -->
+                   <div layout="row" class="row-item" layout-align="space between center">
+                      <div layout="row" class="row-item-detail">
+                         <i class="icon ion-card pad-right-10"></i>
+                         <p>Available Credit Limit</p>
+                     </div>
+                     <div layout="row"   class="row-item-detail">  
+                       <p style="float:right;" ng-class="(overview.creditStatus=='improve') ? 'improved' : 'declined'">{{overview.creditLimit | currency:undefined:0}}</p>
+                   </div> 
+               </div>    
+
+               <!-- Monthly Average -->
+               <div layout="row" class="row-item-average" layout-align="space between center">
+                   <div layout="row" class="row-item-detail">
+                     <p>Monthly Average</p>
+                 </div>  
+                 <div layout="row"   class="row-item-detail">  
+                    <p style="float:right;">{{overview.balanceAverage| currency:undefined:0}}</p>
+                </div> 
+
+            </div>  
+        </md-content>
+    </md-card>
+
+    <!--Expenses  -->
+    <md-card ng-click="navigateTo('app.expenses')">
+        <md-content>
+            <!-- Expenses -->
+            <div layout="row" class="row-item" layout-align="space between center">
+                <div layout="row" class="row-item-head">
+                   <i class="icon ion-pricetags pad-right-10"></i>
+                   <p>Expenses</p>
+               </div>
+               <div layout="row"   class="row-item-head">  
+                   <p ng-class="(overview.expensesStatus=='improve') ? 'improved' : 'declined'">{{overview.expenses| currency:undefined:0}}</p> &nbsp;
+                   <i   class=" icon" ng-class="(overview.expensesStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " ></i>
+               </div> 
+           </div>  
+
+           <!-- Monthly Average -->
+           <div layout="row" class="row-item-average" layout-align="space between center">
+               <div layout="row" class="row-item-detail">
+                 <p>Monthly Average</p>
+             </div>  
+             <div layout="row"   class="row-item-detail">  
+                <p style="float:right;">{{overview.expenseAverage| currency:undefined:0}}</p>
+            </div> 
+
+        </div>  
+    </md-content>
+</md-card>
+<!-- Goals -->
+<md-card ng-click="navigateTo('app.goals')">
+    <md-content>
+            <!-- Goals -->
+            <div layout="row" class="row-item" layout-align="space between center">
+                <div layout="row" class="row-item-head">
+                   <i class="icon ion-pinpoint pad-right-10"></i>
+                   <p>Goals</p>
+               </div>
+               <div layout="row"   class="row-item-head">  
+                   <p ng-class="(overview.goalsStatus=='improve') ? 'improved' : 'declined'">{{overview.savedInGoals| currency:undefined:0}}</p> &nbsp;
+                   <i   class=" icon" ng-class="(overview.goalsStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " ></i>
+               </div> 
+           </div>  
+           <!-- Progress Bar -->
+           <div layout="row" class="row-item">
+                    <progress value="{{overview.savedInGoals}}" max="{{overview.totalGoalAmount}}">
+             
+            </div>   
+    </md-content>
+</md-card>
+
+</div>
+
+</ion-content><!--end expense content section-->
 </ion-view>
+
+
+<style>
+    .row-item >p{
+        padding :2% 0% 0% 2%;
+        margin: 0; 
+    }
+    .row-item-head >p{
+        padding :0% 0% 0% 0%;
+        margin:0;
+    }
+    .row-item-detail >p{
+        padding :0% 0% 0% 0%;
+        margin:0;
+    }
+</style>
