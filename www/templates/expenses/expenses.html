@@ -1,24 +1,30 @@
-<ion-view  id="page6" class=" ">
+<ion-view title="Expenses" id="page6" class=" ">
 
     <!--toolbar section-->
     <md-toolbar class="bar-subheader md-tall md-primary toolbar-medium">
       <div layout="column">
-        <div flex>
-              <h2>Expenses</h2>
+        <div flex style="padding-top:6%">
               <h1>{{expenses.total  | currency:undefined:0}}
                 <i class=" icon" ng-class="(expenses.totalStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " ></i>
               </h1>
         </div>
         <div flex><canvas id="expenseChart" class="chart chart-line"></canvas></div>
-        <div flex>Third item in column</div>
       </div>
+
     </md-toolbar><!--end toolbar section-->
 
-
+    <div layout="row" class="expense-average" layout-align="space between center">
+      <div  layout="row">
+        <p>Monthly Average</p>
+      </div>
+      <div  layout="row">
+        <p>{{expenses.average | currency:undefined:0}}</p>
+      </div>
+    </div>
     <ion-content id="expense-content">
 
       <md-card>
-        <md-content ng-repeat='expense in expenses'>
+        <md-content ng-repeat='expense in expenses' ng-click="updateExpense(expense.id)">
           <div layout="row" class="expense-item-1" layout-align="space between center">
             <div layout="row" class="row-item-head">
                <i class="icon ion-pricetags pad-right-10"></i>

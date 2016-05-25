@@ -5,9 +5,9 @@ angular.module('starter.controllers')
 
   $http.get(baseUrl+'api/expenses/'+$stateParams.expenseId).success(function(data){
     console.log(data);
+    $scope.data=data;
   });
 
-  
+
 
 }]);
-

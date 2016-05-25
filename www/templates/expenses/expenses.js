@@ -4,11 +4,13 @@ angular.module('starter.controllers')
 
   $http.get(baseUrl+"api/expenses").success(function (data) {
     $scope.expenses=data;
+    $scope.expenses.average=4500;
     $scope.expenses.total=5000;
     $scope.expenses.totalStatus="decline";
   });
 
   $scope.updateExpense=function(id){
+    console.log(id);;
     $state.go('app.updateExpense',{expenseId:id});
   }
 
