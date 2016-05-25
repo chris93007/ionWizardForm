@@ -1,28 +1,35 @@
-<ion-view title="Dashboard" id="expense-dashboard" class="dashboardClass">
+<ion-view  id="dashboard" class="dashboardClass">
 
     <!--expense toolbar section-->
-    <md-toolbar class="bar-subheader md-tall md-primary toolbar-expense">
-      <div layout="column">
-        <div>
-            <div><canvas id="overviewChart" class="chart chart-line" colours="colours"></canvas></div>
-
-            <div class="dashboard-overview">
-                <h2>Can Spend</h1>
-                    <h1>{{overview.canSpend | currency:undefined:0}}</h2>
+    <md-toolbar class="bar-subheader md-tall md-primary toolbar-dashboard">
+            <div layout="column">
+                    <div>
+                          <div>
+                                <canvas id="overviewChart" class="chart chart-line"></canvas>
+                          </div>
+                          <div class="dashboard-overview">
+                                <h2>Can Spend</h1>
+                                <h1>{{overview.canSpend | currency:undefined:0}}
+                                    <i class=" icon" ng-class="(overview.canSpendStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " ></i>
+                                </h2>
+                          </div>
                     </div>
 
-                </div>
-                <div style="position:absolute;bottom:0; width:100%" layout="row" layout-align="space between center">
-                    <p class="dashboard-averages" style="float:left; padding-left:1%" flex>Monthly Average</p>
-                    <p flex></p>
-                    <p class="dashboard-averages" style="float:right; padding-right:1%" >{{overview.canSpendAverage | currency}} &nbsp;   <i class=" icon" ng-class="(overview.canSpendStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " style=" font-size:18px;"></i></p>
-                </div>
-
+                   <div style="position:absolute;bottom:0; width:100%" layout="row" layout-align="space between center">
+                          <div layout="row" class="dashboard-averages">
+                                <p>Monthly Average</p>
+                          </div>
+                           <div layout="row"   class="dashboard-averages">
+                                 <p>{{overview.canSpendAverage | currency:undefined:0}}</p>  &nbsp;
+                                 <i   class=" icon" ng-class="(overview.canSpendAverageStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " ></i>
+                          </div>
+                    </div>
             </div>
-        </md-toolbar><!--end expense toolbar section-->
+
+    </md-toolbar><!--end expense toolbar section-->
 
         <!--expense content section-->
-        <ion-content id="expense-dashboard-content">
+        <ion-content id="dashboard-content">
 
             <!--Balances-->
             <md-card>
@@ -33,11 +40,11 @@
                            <i class="icon ion-cash pad-right-10"></i>
                            <p>Balance</p>
                        </div>
-                       <div layout="row"   class="row-item-head">  
+                       <div layout="row"   class="row-item-head">
                            <p ng-class="(overview.balanceStatus=='improve') ? 'improved' : 'declined'">{{overview.balance| currency:undefined:0}}</p> &nbsp;
                            <i   class=" icon" ng-class="(overview.balanceStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " ></i>
-                       </div> 
-                   </div>  
+                       </div>
+                   </div>
 
                    <!-- Credit Limit -->
                    <div layout="row" class="row-item" layout-align="space between center">
@@ -45,21 +52,21 @@
                          <i class="icon ion-card pad-right-10"></i>
                          <p>Available Credit Limit</p>
                      </div>
-                     <div layout="row"   class="row-item-detail">  
-                       <p style="float:right;" ng-class="(overview.creditStatus=='improve') ? 'improved' : 'declined'">{{overview.creditLimit | currency:undefined:0}}</p>
-                   </div> 
-               </div>    
+                     <div layout="row"   class="row-item-detail-currency">
+                       <p ng-class="(overview.creditStatus=='improve') ? 'improved' : 'declined'">{{overview.creditLimit | currency:undefined:0}}</p>
+                   </div>
+               </div>
 
                <!-- Monthly Average -->
                <div layout="row" class="row-item-average" layout-align="space between center">
                    <div layout="row" class="row-item-detail">
                      <p>Monthly Average</p>
-                 </div>  
-                 <div layout="row"   class="row-item-detail">  
-                    <p style="float:right;">{{overview.balanceAverage| currency:undefined:0}}</p>
-                </div> 
+                 </div>
+                 <div layout="row"   class="row-item-detail-currency">
+                    <p>{{overview.balanceAverage| currency:undefined:0}}</p>
+                </div>
 
-            </div>  
+            </div>
         </md-content>
     </md-card>
 
@@ -72,44 +79,51 @@
                    <i class="icon ion-pricetags pad-right-10"></i>
                    <p>Expenses</p>
                </div>
-               <div layout="row"   class="row-item-head">  
+               <div layout="row"   class="row-item-head">
                    <p ng-class="(overview.expensesStatus=='improve') ? 'improved' : 'declined'">{{overview.expenses| currency:undefined:0}}</p> &nbsp;
                    <i   class=" icon" ng-class="(overview.expensesStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " ></i>
-               </div> 
-           </div>  
+               </div>
+           </div>
 
            <!-- Monthly Average -->
            <div layout="row" class="row-item-average" layout-align="space between center">
-               <div layout="row" class="row-item-detail">
+             <div layout="row" class="row-item-detail">
                  <p>Monthly Average</p>
-             </div>  
-             <div layout="row"   class="row-item-detail">  
-                <p style="float:right;">{{overview.expenseAverage| currency:undefined:0}}</p>
-            </div> 
+             </div>
+             <div layout="row"   class="row-item-detail-currency">
+                <p>{{overview.expenseAverage| currency:undefined:0}}</p>
+            </div>
 
-        </div>  
+          </div>
     </md-content>
 </md-card>
 <!-- Goals -->
 <md-card ng-click="navigateTo('app.goals')">
     <md-content>
-            <!-- Goals -->
-            <div layout="row" class="row-item" layout-align="space between center">
-                <div layout="row" class="row-item-head">
-                   <i class="icon ion-pinpoint pad-right-10"></i>
-                   <p>Goals</p>
-               </div>
-               <div layout="row"   class="row-item-head">  
-                   <p ng-class="(overview.goalsStatus=='improve') ? 'improved' : 'declined'">{{overview.savedInGoals| currency:undefined:0}}</p> &nbsp;
-                   <i   class=" icon" ng-class="(overview.goalsStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " ></i>
-               </div> 
-           </div>  
-           <!-- Progress Bar -->
-           <div layout="row" class="row-item">
-                    <progress value="{{overview.savedInGoals}}" max="{{overview.totalGoalAmount}}">
-             
-            </div>   
-    </md-content>
+        <!-- Goals -->
+        <div layout="row" class="row-item" layout-align="space between center">
+            <div layout="row" class="row-item-head">
+               <i class="icon ion-pinpoint pad-right-10"></i>
+               <p>Goals</p>
+           </div>
+           <div layout="row"   class="row-item-head">
+               <p ng-class="(overview.goalsStatus=='improve') ? 'improved' : 'declined'">{{overview.savedInGoals| currency:undefined:0}}</p> &nbsp;
+               <i   class=" icon" ng-class="(overview.goalsStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " ></i>
+           </div>
+       </div>
+       <!-- Progress Bar -->
+       <div layout="row" layout-align="space between center">
+
+        <progress layout="row" value="{{overview.savedInGoals}}" max="{{overview.totalGoalAmount}}"></progress>
+
+        </div>
+        <div layout="row" class="row-item" layout-align="space between center">
+            <div layout="row"></div>
+           <div  layout="row" class="row-item-detail" style="padding-top:0%">
+                <p>{{overview.totalGoalAmount| currency:undefined:0}}</p>
+            </div>
+        </div>
+</md-content>
 </md-card>
 
 </div>
@@ -119,16 +133,5 @@
 
 
 <style>
-    .row-item >p{
-        padding :2% 0% 0% 2%;
-        margin: 0; 
-    }
-    .row-item-head >p{
-        padding :0% 0% 0% 0%;
-        margin:0;
-    }
-    .row-item-detail >p{
-        padding :0% 0% 0% 0%;
-        margin:0;
-    }
+
 </style>

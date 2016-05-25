@@ -1,0 +1,154 @@
+
+//global variable section
+
+//colors variable section
+$color_white: white;
+$color_gray: gray;
+$color_alto: #dbdbdb;
+$color_black: black;
+$color_mercury: #e5e5e5;
+$color_black_14: rgba(0, 0, 0, 0.14);
+$color_black_12: rgba(0, 0, 0, 0.12);
+$color_black_20: rgba(0, 0, 0, 0.2);
+$color_black_084: rgba(0, 0, 0, 0.084);
+$color_black_098: rgba(0, 0, 0, 0.098);
+$color_black_haze_approx: #f6f6f6;
+$color_angular: #E15258;
+$color_ionic: #3079AB;
+$color_material: #E59A13;
+$color_ios: #45AFA8;
+$color_facebook: #3c5c99;
+$color_google_plus: #d73d32;
+$color_instagram: #517fa4;
+$color_foursquare: #f94777;
+$color_dropbox: #017ee6;
+$color_wordoress: #0087BE;
+$color_romance_approx: #fefefe;
+$color_alabaster: #fafafa;
+$color_gondola_40_approx: rgba(34, 25, 25, 0.4);
+$color_celeste_approx: #ccc;
+$color_mine_shaft_approx: #333;
+$color_carnation_approx: #ff5252;
+$color_chenin_approx: #e3cf7a;
+$color_red_orange_approx: #f44336;
+$color_border_under_line: rgba(0, 0, 0, 0.12);
+$color_md_tabs_border: #E1E1E1;
+$color_md-whiteframe: #fff;
+$color_border_menu_dashboard: rgba(225, 225, 225, 0.69);
+$color_news_header: #2882D8;
+
+//fonts variable section
+$font_roboto_draft: RobotoDraft;
+$font_roboto: Roboto;
+$font_helvetica_neue: Helvetica Neue;
+$font_sans-serif: sans-serif;
+$font_arial: Arial;
+
+//urls variable section
+$url_background_cover_pixels: url(../img/background_cover_pixels.png);
+$url_background_cover_contract_us: url(../img/contract_us_bg.jpg);
+$url_background_cover_try_app_01: url(../img/slide_01.png);
+$url_background_cover_try_app_02: url(../img/slide_02.png);
+$url_background_cover_try_app_03: url(../img/slide_03.png);
+$url_background_cover_try_app_04: url(../img/slide_04.png);
+$url_background_cover_try_app_05: url(../img/slide_05.png);
+$url_background_cover_try_app_06: url(../img/slide_06.png);
+$url_background_cover_try_app_07: url(../img/slide_07.png);
+$url_background_cover_try_app_08: url(../img/slide_08.png);
+$url_background_cover_restaurant_01: url(../img/food_cover_01.png);
+$url_background_cover_restaurant_02: url(../img/food_cover_02.png);
+$url_background_cover_restaurant_03: url(../img/food_cover_03.png);
+
+body {
+  font-family: $font_roboto_draft, $font_roboto, $font_helvetica_neue, $font_sans-serif ;
+}
+
+//menu section
+//menu header section
+#toggle-menu-left-header {
+  height: 154px;
+  background: $url_background_cover_pixels repeat 0;
+  background-position-x: 8px;
+  color: $color_white;
+  box-shadow: 0 0 0 0 $color_black_14, 0 1px 10px 0 $color_black_14, 0 2px 4px -1px $color_black_20;
+  background-repeat: repeat;
+  position: relative;
+  background-size: 80%;
+  z-index: 9000;
+  div.menu-left-header {
+    position: relative;
+    top: 58%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: 0 0 0 16px;
+
+    img.user-img {
+      border-radius: 50%;
+      width: 62px;
+      height: 62px;
+      margin-bottom: 2px;
+    }
+
+    p {
+      font-weight: bolder;
+
+      span.title {
+        font-size: 16px;
+      }
+
+      span.sub-title {
+        font-size: 12px;
+      }
+    }
+  }
+}//end menu header section
+
+//menu content section
+#toggle-menu-left-content {
+  margin-top: 154px;
+
+  md-list {
+    h2 {
+      background-color: transparent !important;
+      div.md-subheader-inner{
+        background-color: transparent !important;
+      }
+    }
+
+    md-list-item.menu-list-item {
+      display: table;
+      width: 100%;
+
+      i {
+        margin-right: 30px;
+        margin-left: 22px;
+        font-size: 19px;
+        color: $color_gray;
+        width: 20px;
+      }
+
+      span {
+        font-size: 15px;
+      }
+    }
+  }
+  .menu-list {
+    .menu-item {
+      padding: 14px;
+      .col-33 {
+        text-align: center;
+        font-size: 22px;
+        color: gray;
+      }
+      .col-66 {
+
+        font-size: 15px;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}//menu content section
+//end menu section

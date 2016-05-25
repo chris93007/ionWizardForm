@@ -1,0 +1,52 @@
+  @import "main";
+
+  //toolbar section
+.toolbar-medium {
+  max-height: 160px !important;
+  height: 160px !important;
+  box-shadow: 0 2px 6px $color_black_20;
+
+  div {
+    text-align: center;
+    height: inherit !important;
+  }
+
+  h1 {
+    color: $color_white;
+    font-size: 30px;
+    font-weight: 400;
+  }
+
+  h2 {
+    color: $color_white;
+    font-size: 16px;
+  }
+
+  h3 {
+    color: $color_white;
+    font-size: 28px !important;
+  }
+
+}
+
+//dashboard section
+#expense-content {
+  margin-top: 164px;
+
+}//end dashboard section
+
+.expense-item-1{
+    border: none;
+}
+.expense-item-2{
+    border: none;
+    border-bottom: 1px solid $color_md_tabs_border;
+}
+#expenseChart{
+  width: 100% !important;
+  height: 80% !important;
+  position:absolute;
+  left:0;
+  bottom:15%;
+  z-index:-1;
+}

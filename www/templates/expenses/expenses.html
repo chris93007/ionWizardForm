@@ -1,21 +1,49 @@
-<ion-view title="Expenses" id="page6" class=" ">
-    <ion-content padding="true" class="has-header">
+<ion-view  id="page6" class=" ">
 
-            <div ng-repeat='expense in expenses'>
-              <div class="item item-body " id="expenses-list-item-container6" ng-click="updateExpense(expense.id)">
+    <!--toolbar section-->
+    <md-toolbar class="bar-subheader md-tall md-primary toolbar-medium">
+      <div layout="column">
+        <div flex>
+              <h2>Expenses</h2>
+              <h1>{{expenses.total  | currency:undefined:0}}
+                <i class=" icon" ng-class="(expenses.totalStatus=='improve') ? 'ion-ios-arrow-thin-up improved' : 'ion-ios-arrow-thin-down declined' " ></i>
+              </h1>
+        </div>
+        <div flex><canvas id="expenseChart" class="chart chart-line"></canvas></div>
+        <div flex>Third item in column</div>
+      </div>
+    </md-toolbar><!--end toolbar section-->
 
-                  <div>
-                      <div id="wrapper">
-                          <div id="expensesInner1">{{expense.description}}</div>
 
-                          <br>
-                          <div id="expensesInner1">{{expense.category}}</div>
-                          <div id="expensesInner2">{{expense.amount}}</div>
-                      </div>
-                  </div>
-              </div>
+    <ion-content id="expense-content">
+
+      <md-card>
+        <md-content ng-repeat='expense in expenses'>
+          <div layout="row" class="expense-item-1" layout-align="space between center">
+            <div layout="row" class="row-item-head">
+               <i class="icon ion-pricetags pad-right-10"></i>
+               <p>{{expense.description}}</p>
+           </div>
+           <div layout="row"   class="row-item-head">
+               <p>{{expense.amount| currency:undefined:0}}</p>
+           </div>
+          </div>
+          <div layout="row" class="expense-item-2" layout-align="space between center">
+            <div layout="row" class="row-item-detail">
+                <p>{{expense.category}}</p>
             </div>
-            <a ui-sref="app.addNewExpense" id="expenses-button2" style="border-radius:20px 20px 20px 20px;" class=" button button-positive button-large button-block button-clear icon-right ion-android-add "></a>
+            <div layout="row"   class="row-item-detail">
+               <p>{{expense.payby | date :  "MMM dd"}}</p>
+           </div>
+          </div>
+        </md-content>
+      </md-card>
 
  </ion-content>
+
+ <div class="footer-fab-bar">
+    <a class="md-button md-accent md-fab fab-footer" aria-label="Add" ui-sref="app.addNewExpense">
+        <i class="icon ion-plus"></i>
+    </a>
+</div>
 </ion-view>

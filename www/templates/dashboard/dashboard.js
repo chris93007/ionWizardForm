@@ -6,7 +6,8 @@ angular.module('starter.controllers')
 
   $http.get(baseUrl+"overview").success(function (data) {
     $scope.overview=data;
-    $scope.overview.canSpendStatus="decline";
+    $scope.overview.canSpendStatus="improve";
+    $scope.overview.canSpendAverageStatus="decline";
     $scope.overview.balanceStatus="improve";
     $scope.overview.creditStatus="improve";
     $scope.overview.expensesStatus="decline";

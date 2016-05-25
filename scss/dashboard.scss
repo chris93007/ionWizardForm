@@ -1,67 +1,9 @@
-//global variable section
-
-//colors variable section
-$color_white: white;
-$color_gray: gray;
-$color_alto: #dbdbdb;
-$color_black: black;
-$color_mercury: #e5e5e5;
-$color_black_14: rgba(0, 0, 0, 0.14);
-$color_black_12: rgba(0, 0, 0, 0.12);
-$color_black_20: rgba(0, 0, 0, 0.2);
-$color_black_084: rgba(0, 0, 0, 0.084);
-$color_black_098: rgba(0, 0, 0, 0.098);
-$color_black_haze_approx: #f6f6f6;
-$color_angular: #E15258;
-$color_ionic: #3079AB;
-$color_material: #E59A13;
-$color_ios: #45AFA8;
-$color_facebook: #3c5c99;
-$color_google_plus: #d73d32;
-$color_instagram: #517fa4;
-$color_foursquare: #f94777;
-$color_dropbox: #017ee6;
-$color_wordoress: #0087BE;
-$color_romance_approx: #fefefe;
-$color_alabaster: #fafafa;
-$color_gondola_40_approx: rgba(34, 25, 25, 0.4);
-$color_celeste_approx: #ccc;
-$color_mine_shaft_approx: #333;
-$color_carnation_approx: #ff5252;
-$color_chenin_approx: #e3cf7a;
-$color_red_orange_approx: #f44336;
-$color_border_under_line: rgba(0, 0, 0, 0.12);
-$color_md_tabs_border: #E1E1E1;
-$color_md-whiteframe: #fff;
-$color_border_menu_dashboard: rgba(225, 225, 225, 0.69);
-$color_news_header: #2882D8;
-
-//fonts variable section
-$font_roboto_draft: RobotoDraft;
-$font_roboto: Roboto;
-$font_helvetica_neue: Helvetica Neue;
-$font_sans-serif: sans-serif;
-$font_arial: Arial;
-
-//urls variable section
-$url_background_cover_pixels: url(../img/background_cover_pixels.png);
-$url_background_cover_contract_us: url(../img/contract_us_bg.jpg);
-$url_background_cover_try_app_01: url(../img/slide_01.png);
-$url_background_cover_try_app_02: url(../img/slide_02.png);
-$url_background_cover_try_app_03: url(../img/slide_03.png);
-$url_background_cover_try_app_04: url(../img/slide_04.png);
-$url_background_cover_try_app_05: url(../img/slide_05.png);
-$url_background_cover_try_app_06: url(../img/slide_06.png);
-$url_background_cover_try_app_07: url(../img/slide_07.png);
-$url_background_cover_try_app_08: url(../img/slide_08.png);
-$url_background_cover_restaurant_01: url(../img/food_cover_01.png);
-$url_background_cover_restaurant_02: url(../img/food_cover_02.png);
-$url_background_cover_restaurant_03: url(../img/food_cover_03.png);
+  @import "main";
 
   //expense dashboard section
-  #expense-dashboard {
-    //expense toolbar section
-    .toolbar-expense {
+  #dashboard {
+    //dashboard toolbar section
+    .toolbar-dashboard {
       max-height: 260px !important;
       height: 260px !important;
       box-shadow: 0 2px 6px $color_black_20;
@@ -90,73 +32,12 @@ $url_background_cover_restaurant_03: url(../img/food_cover_03.png);
       }
     }//end toolbar section
 
-  //expense content section
-  #expense-dashboard-content {
+  //dashboard content section
+  #dashboard-content {
     margin-top: 256px;
-    md-list-item {
-      margin: 0;
-      &.row {
-        padding: 0 !important;
-        height: 66px !important;
-      }
-      .icon {
-        font-size: 30px;
-        text-align: center;
-        color: $color_gray;
-        margin-top: -6px;
-      }
-      .menu {
-        padding-left: 8px;
-        .header {
-          font-size: 15px;
-          font-weight: 500;
-          margin-bottom: 0;
-          padding-top: 6px;
-        }
-        .detail {
-          font-size: 12px;
-          color: $color_gray;
-          margin-bottom: 0;
-          margin-top: -16px;
-        }
-      }
-      button {
-        padding: 10px;
-      }
-    }
-    div.list-expense-menu {
-      margin-top: 14px;
-      div.list-expense-menu-item {
-        margin-top: 9px;
-        div.row {
-          position: relative;
-          padding: 20px;
-          border: none;
-          border-bottom: 1px solid $color_md_tabs_border;
-          div.col-20 {
-            padding-left: 0;
-            margin-top: -16px;
-            font-size: 30px;
-            color: $color_gray;
-          }
-          div.col-80.menu {
-            .header {
-              font-size: 15px;
-              font-weight: 500;
-              margin-bottom: 0;
-              padding-top: 6px;
-            }
-            .detail {
-              font-size: 12px;
-              color: $color_gray;
-              margin-bottom: 0;
-            }
-          }
-        }
-      }
-    }
-  }//end expense content section
-}//end expense dashboard section
+
+  }//end dashboard content section
+}//end dashboard dashboard section
 
   #overviewChart{
     width: 100% !important;
@@ -171,7 +52,8 @@ $url_background_cover_restaurant_03: url(../img/food_cover_03.png);
     text-align: center;
   }
   .dashboard-averages{
-    font-size:14px  !important;
+    padding:3% 5% 3% 5%;
+    font-size:17px;
     color:white !important
   }
 
@@ -181,26 +63,78 @@ $url_background_cover_restaurant_03: url(../img/food_cover_03.png);
 }
 
 .row-item-head{
+    font-weight:450;
     padding:3%;
-    font-size:20px;       
+    font-size:20px;
 }
 .row-item-detail{
     padding:3%;
-    font-size:16px;  
-    color:#666666;  
+    font-size:17px;
+    color:#666666;
+}
+.row-item-detail-currency{
+    padding:3% 6% 3% 3%;
+    font-size:17px;
+    color:#666666;
 }
 .row-item-average{
-    font-weight:bold;
     color:#4C6069;
-    background-color:#ECEFF1; 
+    background-color:#ECEFF1;
     border: none;
     border-bottom: 1px solid $color_md_tabs_border;
 }
-
-.improved{
-  color:#5FAC70;
+.row-item >p{
+    padding :2% 0% 0% 2%;
+    margin: 0;
+}
+.row-item-head >p{
+    padding :0% 0% 0% 0%;
+    margin:0;
+}
+.row-item-detail >p{
+    padding :0% 0% 0% 0%;
+    margin:0;
+}
+.dashboard-averages >p{
+    padding :0% 0% 0% 0%;
+    margin:0;
 }
 
-.declined{
-  color:#F16764;
-}
+ progress {
+ margin:3% 2% 2% 2%;
+ display: block;
+ /* Important Thing */
+ -webkit-appearance: none;
+ border: none;
+ }
+
+ /* All good till now. Now we'll style the background */
+ progress::-webkit-progress-bar {
+ background: #F1F1F1;
+ border-radius: 50px;
+ padding: 2px;
+ box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+ }
+
+ /* Now the value part */
+ progress::-webkit-progress-value {
+ border-radius: 50px;
+ box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+ background:
+ -webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%),
+ -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
+ -webkit-linear-gradient(left, #66BB6A, #66BB6A);
+
+ /* Looks great, now animating it */
+ background-size: 25px 14px, 100% 100%, 100% 100%;
+ -webkit-animation: move 5s linear 0 infinite;
+ }
+
+ /* That's it! Now let's try creating a new stripe pattern and animate it using animation and keyframes properties  */
+
+ @-webkit-keyframes move {
+ 0% {background-position: 0px 0px, 0 0, 0 0}
+ 100% {background-position: -100px 0px, 0 0, 0 0}
+ }
+
+ /* Prefix-free was creating issues with the animation */

@@ -1,147 +1,103 @@
-//global variable section
+  @import "main";
 
-//colors variable section
-$color_white: white;
-$color_gray: gray;
-$color_alto: #dbdbdb;
-$color_black: black;
-$color_mercury: #e5e5e5;
-$color_black_14: rgba(0, 0, 0, 0.14);
-$color_black_12: rgba(0, 0, 0, 0.12);
-$color_black_20: rgba(0, 0, 0, 0.2);
-$color_black_084: rgba(0, 0, 0, 0.084);
-$color_black_098: rgba(0, 0, 0, 0.098);
-$color_black_haze_approx: #f6f6f6;
-$color_angular: #E15258;
-$color_ionic: #3079AB;
-$color_material: #E59A13;
-$color_ios: #45AFA8;
-$color_facebook: #3c5c99;
-$color_google_plus: #d73d32;
-$color_instagram: #517fa4;
-$color_foursquare: #f94777;
-$color_dropbox: #017ee6;
-$color_wordoress: #0087BE;
-$color_romance_approx: #fefefe;
-$color_alabaster: #fafafa;
-$color_gondola_40_approx: rgba(34, 25, 25, 0.4);
-$color_celeste_approx: #ccc;
-$color_mine_shaft_approx: #333;
-$color_carnation_approx: #ff5252;
-$color_chenin_approx: #e3cf7a;
-$color_red_orange_approx: #f44336;
-$color_border_under_line: rgba(0, 0, 0, 0.12);
-$color_md_tabs_border: #E1E1E1;
-$color_md-whiteframe: #fff;
-$color_border_menu_dashboard: rgba(225, 225, 225, 0.69);
-$color_news_header: #2882D8;
-
-//urls variable section
-$url_background_cover_pixels: url(../img/background_cover_pixels.png);
-$url_background_cover_contract_us: url(../img/contract_us_bg.jpg);
-$url_background_cover_try_app_01: url(../img/slide_01.png);
-$url_background_cover_try_app_02: url(../img/slide_02.png);
-$url_background_cover_try_app_03: url(../img/slide_03.png);
-$url_background_cover_try_app_04: url(../img/slide_04.png);
-$url_background_cover_try_app_05: url(../img/slide_05.png);
-$url_background_cover_try_app_06: url(../img/slide_06.png);
-$url_background_cover_try_app_07: url(../img/slide_07.png);
-$url_background_cover_try_app_08: url(../img/slide_08.png);
-$url_background_cover_restaurant_01: url(../img/food_cover_01.png);
-$url_background_cover_restaurant_02: url(../img/food_cover_02.png);
-$url_background_cover_restaurant_03: url(../img/food_cover_03.png);
-
-//end global variable section
 /*Custom CSS*/
- .pad-left-10{
-    padding-left:10%
- }
+.pad-left-10{
+padding-left:10%
+}
 
- .pad-right-10{
-    padding-right:10%
- }
+.pad-right-10{
+padding-right:10%
+}
 
 .wizard-input{
-  margin-top: 20% !important;
+margin-top: 20% !important;
 }
 
-progress {
-  margin:2%;
-  display: block;
-  /* Important Thing */
-  -webkit-appearance: none;
-  border: none;
+.improved{
+  color:#5FAC70;
 }
 
-/* All good till now. Now we'll style the background */
-progress::-webkit-progress-bar {
-  background: #F1F1F1;
-  border-radius: 50px;
-  padding: 2px;
-  box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+.declined{
+  color:#F16764;
 }
 
-/* Now the value part */
-progress::-webkit-progress-value {
-  border-radius: 50px;
-  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
-  background:
-    -webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%),
-    -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
-    -webkit-linear-gradient(left, #66BB6A, #66BB6A);
-  
-  /* Looks great, now animating it */
-  background-size: 25px 14px, 100% 100%, 100% 100%;
-  -webkit-animation: move 5s linear 0 infinite;
+//button section
+.md-button.md-accent.md-fab {
+  &.fab-toolbar-medium {
+    float: right;
+    right: 25px;
+    padding: 15px;
+    line-height: 0 !important;
+    margin-top: -29px;
+
+    i {
+      vertical-align: text-top;
+      font-size: x-large;
+      color: $color_white;
+    }
+  }
+
+  &.fab-footer {
+    float: right;
+    right: 5px;
+    padding: 15px;
+    line-height: 0 !important;
+    margin-bottom: 25px;
+    margin-top: -65px;
+
+    i {
+      vertical-align: text-top;
+      font-size: x-large;
+      color: $color_white;
+    }
+  }
 }
 
-/* That's it! Now let's try creating a new stripe pattern and animate it using animation and keyframes properties  */
-
-@-webkit-keyframes move {
-  0% {background-position: 0px 0px, 0 0, 0 0}
-  100% {background-position: -100px 0px, 0 0, 0 0}
-}
-
-/* Prefix-free was creating issues with the animation */
-
+//footer fab bar
+.footer-fab-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10px !important;
+}//end footer fab bar
 
 .chipsdemoContactChips md-content.autocomplete {
-  min-height: 250px; }
-  .chipsdemoContactChips md-content.autocomplete input {
-    min-width: 400px; }
+min-height: 250px; }
+.chipsdemoContactChips md-content.autocomplete input {
+min-width: 400px; }
 
 .chipsdemoContactChips .md-item-text.compact {
-  padding-top: 8px;
-  padding-bottom: 8px; }
+padding-top: 8px;
+padding-bottom: 8px; }
 
 .chipsdemoContactChips .contact-item {
-  box-sizing: border-box; }
-  .chipsdemoContactChips .contact-item.selected {
-    opacity: 0.5; }
-    .chipsdemoContactChips .contact-item.selected h3 {
-      opacity: 0.5; }
-  .chipsdemoContactChips .contact-item .md-list-item-text {
-    padding: 14px 0;
-    max-width: 190px; }
-    .chipsdemoContactChips .contact-item .md-list-item-text h3 {
-      margin: 0 !important;
-      padding: 0;
-      line-height: 1.2em !important; }
-    .chipsdemoContactChips .contact-item .md-list-item-text h3, .chipsdemoContactChips .contact-item .md-list-item-text p {
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden; }
-  @media screen and (min-width: 960px) {
-    .chipsdemoContactChips .contact-item {
-      float: left;
-      width: 33%; } }
+box-sizing: border-box; }
+.chipsdemoContactChips .contact-item.selected {
+opacity: 0.5; }
+.chipsdemoContactChips .contact-item.selected h3 {
+opacity: 0.5; }
+.chipsdemoContactChips .contact-item .md-list-item-text {
+padding: 14px 0;
+max-width: 190px; }
+.chipsdemoContactChips .contact-item .md-list-item-text h3 {
+margin: 0 !important;
+padding: 0;
+line-height: 1.2em !important; }
+.chipsdemoContactChips .contact-item .md-list-item-text h3, .chipsdemoContactChips .contact-item .md-list-item-text p {
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden; }
+@media screen and (min-width: 960px) {
+.chipsdemoContactChips .contact-item {
+float: left;
+width: 33%; } }
 
 .chipsdemoContactChips md-contact-chips {
-  margin-bottom: 10px; }
+margin-bottom: 10px; }
 
 .chipsdemoContactChips .md-chips {
-  padding: 5px 0 8px; }
+padding: 5px 0 8px; }
 
 .chipsdemoContactChips .fixedRows {
-  height: 250px;
-  overflow: hidden; }
+height: 250px;
+overflow: hidden; }

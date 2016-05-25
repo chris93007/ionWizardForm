@@ -1,3 +1,64 @@
+body {
+  font-family: RobotoDraft, Roboto, Helvetica Neue, sans-serif; }
+
+#toggle-menu-left-header {
+  height: 154px;
+  background: url(../img/background_cover_pixels.png) repeat 0;
+  background-position-x: 8px;
+  color: white;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.14), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  background-repeat: repeat;
+  position: relative;
+  background-size: 80%;
+  z-index: 9000; }
+  #toggle-menu-left-header div.menu-left-header {
+    position: relative;
+    top: 58%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: 0 0 0 16px; }
+    #toggle-menu-left-header div.menu-left-header img.user-img {
+      border-radius: 50%;
+      width: 62px;
+      height: 62px;
+      margin-bottom: 2px; }
+    #toggle-menu-left-header div.menu-left-header p {
+      font-weight: bolder; }
+      #toggle-menu-left-header div.menu-left-header p span.title {
+        font-size: 16px; }
+      #toggle-menu-left-header div.menu-left-header p span.sub-title {
+        font-size: 12px; }
+
+#toggle-menu-left-content {
+  margin-top: 154px; }
+  #toggle-menu-left-content md-list h2 {
+    background-color: transparent !important; }
+    #toggle-menu-left-content md-list h2 div.md-subheader-inner {
+      background-color: transparent !important; }
+  #toggle-menu-left-content md-list md-list-item.menu-list-item {
+    display: table;
+    width: 100%; }
+    #toggle-menu-left-content md-list md-list-item.menu-list-item i {
+      margin-right: 30px;
+      margin-left: 22px;
+      font-size: 19px;
+      color: gray;
+      width: 20px; }
+    #toggle-menu-left-content md-list md-list-item.menu-list-item span {
+      font-size: 15px; }
+  #toggle-menu-left-content .menu-list .menu-item {
+    padding: 14px; }
+    #toggle-menu-left-content .menu-list .menu-item .col-33 {
+      text-align: center;
+      font-size: 22px;
+      color: gray; }
+    #toggle-menu-left-content .menu-list .menu-item .col-66 {
+      font-size: 15px;
+      white-space: nowrap;
+      overflow-x: hidden;
+      text-overflow: ellipsis; }
+
 /*Custom CSS*/
 .pad-left-10 {
   padding-left: 10%; }
@@ -8,37 +69,41 @@
 .wizard-input {
   margin-top: 20% !important; }
 
-progress {
-  margin: 2%;
-  display: block;
-  /* Important Thing */
-  -webkit-appearance: none;
-  border: none; }
+.improved {
+  color: #5FAC70; }
 
-/* All good till now. Now we'll style the background */
-progress::-webkit-progress-bar {
-  background: #F1F1F1;
-  border-radius: 50px;
-  padding: 2px;
-  box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2); }
+.declined {
+  color: #F16764; }
 
-/* Now the value part */
-progress::-webkit-progress-value {
-  border-radius: 50px;
-  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
-  background: -webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)), -webkit-linear-gradient(left, #66BB6A, #66BB6A);
-  /* Looks great, now animating it */
-  background-size: 25px 14px, 100% 100%, 100% 100%;
-  -webkit-animation: move 5s linear 0 infinite; }
+.md-button.md-accent.md-fab.fab-toolbar-medium {
+  float: right;
+  right: 25px;
+  padding: 15px;
+  line-height: 0 !important;
+  margin-top: -29px; }
+  .md-button.md-accent.md-fab.fab-toolbar-medium i {
+    vertical-align: text-top;
+    font-size: x-large;
+    color: white; }
 
-/* That's it! Now let's try creating a new stripe pattern and animate it using animation and keyframes properties  */
-@-webkit-keyframes move {
-  0% {
-    background-position: 0px 0px, 0 0, 0 0; }
-  100% {
-    background-position: -100px 0px, 0 0, 0 0; } }
+.md-button.md-accent.md-fab.fab-footer {
+  float: right;
+  right: 5px;
+  padding: 15px;
+  line-height: 0 !important;
+  margin-bottom: 25px;
+  margin-top: -65px; }
+  .md-button.md-accent.md-fab.fab-footer i {
+    vertical-align: text-top;
+    font-size: x-large;
+    color: white; }
 
-/* Prefix-free was creating issues with the animation */
+.footer-fab-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10px !important; }
+
 .chipsdemoContactChips md-content.autocomplete {
   min-height: 250px; }
 
