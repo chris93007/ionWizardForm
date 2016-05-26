@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
 
-.controller('updateExpenseCtrl', ['$scope','$http','baseUrl','$stateParams', function($scope,$http,baseUrl,$stateParams) {
+.controller('updateExpenseCtrl', ['$scope','$http','baseUrl','$stateParams','$state', function($scope,$http,baseUrl,$stateParams,$state) {
 
 
   $http.get(baseUrl+'api/expenses/'+$stateParams.expenseId).success(function(data){
@@ -8,6 +8,9 @@ angular.module('starter.controllers')
     $scope.data=data;
   });
 
-
+  $scope.cancel = function() {
+      $scope.expenseInfo={};
+      $state.go('app.expenses');
+  };
 
 }]);
