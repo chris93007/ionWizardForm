@@ -107,7 +107,7 @@ angular.module('starter.controllers')
             $scope.disable2=true;
        }else{
            delete   $scope.expenseInfo.category;
-           $scope.disable2=false; 
+           $scope.disable2=false;
        }
 
    });

@@ -54,20 +54,20 @@ angular.module('starter', ['ionic','ionic.wizard','ngIOS9UIWebViewPatch', 'start
         //  createDate	DateTime	No
         //  age	        Integer	    No
         //  isEnable	Boolean	    No
-
-        function initialSQLite() {
-            db = window.cordova ? $cordovaSQLite.openDB("contract.db") : window.openDatabase("contract.db", "1.0", "IonicMaterialDesignDB", -1);
-            $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS contracts " +
-                "( id           integer primary key   , " +
-                "  firstName    text                  , " +
-                "  lastName     text                  , " +
-                "  telephone    text                  , " +
-                "  email        text                  , " +
-                "  note         text                  , " +
-                "  createDate   dateTime              , " +
-                "  age          integer               , " +
-                "  isEnable     Boolean)                ");
-        };
+        //
+        // function initialSQLite() {
+        //     db = window.cordova ? $cordovaSQLite.openDB("contract.db") : window.openDatabase("contract.db", "1.0", "IonicMaterialDesignDB", -1);
+        //     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS contracts " +
+        //         "( id           integer primary key   , " +
+        //         "  firstName    text                  , " +
+        //         "  lastName     text                  , " +
+        //         "  telephone    text                  , " +
+        //         "  email        text                  , " +
+        //         "  note         text                  , " +
+        //         "  createDate   dateTime              , " +
+        //         "  age          integer               , " +
+        //         "  isEnable     Boolean)                ");
+        // };
         // End creating SQLite database table.
 
         // Create custom defaultStyle.
@@ -83,71 +83,71 @@ angular.module('starter', ['ionic','ionic.wizard','ngIOS9UIWebViewPatch', 'start
         }// End create custom defaultStyle
 
         // Create custom style for product view.
-        function getProductStyle() {
-            return "" +
-                ".material-background-nav-bar { " +
-                "   background-color        : " + appPrimaryColor + " !important;" +
-                "   border-style            : none;" +
-                "   background-image        : url('img/background_cover_pixels.png') !important;" +
-                "   background-size         : initial !important;" +
-                "}" +
-                ".md-primary-color {" +
-                "   color                     : " + appPrimaryColor + " !important;" +
-                "}";
-        }// End create custom style for product view.
-
-        // Create custom style for contract us view.
-        function getContractUsStyle() {
-            return "" +
-                ".material-background-nav-bar { " +
-                "   background-color        : transparent !important;" +
-                "   border-style            : none;" +
-                "   background-image        : none !important;" +
-                "   background-position-y   : 4px !important;" +
-                "   background-size         : initial !important;" +
-                "}" +
-                ".md-primary-color {" +
-                "   color                     : " + appPrimaryColor + " !important;" +
-                "}";
-        } // End create custom style for contract us view.
-
-        // Create custom style for Social Network view.
-        function getSocialNetworkStyle(socialColor) {
-            return "" +
-                ".material-background-nav-bar {" +
-                "   background              : " + socialColor + " !important;" +
-                "   border-style            : none;" +
-                "} " +
-                "md-ink-bar {" +
-                "   color                   : " + socialColor + " !important;" +
-                "   background              : " + socialColor + " !important;" +
-                "}" +
-                "md-tab-item {" +
-                "   color                   : " + socialColor + " !important;" +
-                "}" +
-                " md-progress-circular.md-warn .md-inner .md-left .md-half-circle {" +
-                "   border-left-color       : " + socialColor + " !important;" +
-                "}" +
-                " md-progress-circular.md-warn .md-inner .md-left .md-half-circle, md-progress-circular.md-warn .md-inner .md-right .md-half-circle {" +
-                "    border-top-color       : " + socialColor + " !important;" +
-                "}" +
-                " md-progress-circular.md-warn .md-inner .md-gap {" +
-                "   border-top-color        : " + socialColor + " !important;" +
-                "   border-bottom-color     : " + socialColor + " !important;" +
-                "}" +
-                "md-progress-circular.md-warn .md-inner .md-right .md-half-circle {" +
-                "  border-right-color       : " + socialColor + " !important;" +
-                " }" +
-                ".spinner-android {" +
-                "   stroke                  : " + socialColor + " !important;" +
-                "}" +
-                ".md-primary-color {" +
-                "   color                   : " + socialColor + " !important;" +
-                "}" +
-                "a.md-button.md-primary, .md-button.md-primary {" +
-                "   color                   : " + socialColor + " !important;" +
-                "}";
-        }// End create custom style for Social Network view.
+        // function getProductStyle() {
+        //     return "" +
+        //         ".material-background-nav-bar { " +
+        //         "   background-color        : " + appPrimaryColor + " !important;" +
+        //         "   border-style            : none;" +
+        //         "   background-image        : url('img/background_cover_pixels.png') !important;" +
+        //         "   background-size         : initial !important;" +
+        //         "}" +
+        //         ".md-primary-color {" +
+        //         "   color                     : " + appPrimaryColor + " !important;" +
+        //         "}";
+        // }// End create custom style for product view.
+        //
+        // // Create custom style for contract us view.
+        // function getContractUsStyle() {
+        //     return "" +
+        //         ".material-background-nav-bar { " +
+        //         "   background-color        : transparent !important;" +
+        //         "   border-style            : none;" +
+        //         "   background-image        : none !important;" +
+        //         "   background-position-y   : 4px !important;" +
+        //         "   background-size         : initial !important;" +
+        //         "}" +
+        //         ".md-primary-color {" +
+        //         "   color                     : " + appPrimaryColor + " !important;" +
+        //         "}";
+        // } // End create custom style for contract us view.
+        //
+        // // Create custom style for Social Network view.
+        // function getSocialNetworkStyle(socialColor) {
+        //     return "" +
+        //         ".material-background-nav-bar {" +
+        //         "   background              : " + socialColor + " !important;" +
+        //         "   border-style            : none;" +
+        //         "} " +
+        //         "md-ink-bar {" +
+        //         "   color                   : " + socialColor + " !important;" +
+        //         "   background              : " + socialColor + " !important;" +
+        //         "}" +
+        //         "md-tab-item {" +
+        //         "   color                   : " + socialColor + " !important;" +
+        //         "}" +
+        //         " md-progress-circular.md-warn .md-inner .md-left .md-half-circle {" +
+        //         "   border-left-color       : " + socialColor + " !important;" +
+        //         "}" +
+        //         " md-progress-circular.md-warn .md-inner .md-left .md-half-circle, md-progress-circular.md-warn .md-inner .md-right .md-half-circle {" +
+        //         "    border-top-color       : " + socialColor + " !important;" +
+        //         "}" +
+        //         " md-progress-circular.md-warn .md-inner .md-gap {" +
+        //         "   border-top-color        : " + socialColor + " !important;" +
+        //         "   border-bottom-color     : " + socialColor + " !important;" +
+        //         "}" +
+        //         "md-progress-circular.md-warn .md-inner .md-right .md-half-circle {" +
+        //         "  border-right-color       : " + socialColor + " !important;" +
+        //         " }" +
+        //         ".spinner-android {" +
+        //         "   stroke                  : " + socialColor + " !important;" +
+        //         "}" +
+        //         ".md-primary-color {" +
+        //         "   color                   : " + socialColor + " !important;" +
+        //         "}" +
+        //         "a.md-button.md-primary, .md-button.md-primary {" +
+        //         "   color                   : " + socialColor + " !important;" +
+        //         "}";
+        // }// End create custom style for Social Network view.
 
 
         function initialRootScope() {
@@ -177,47 +177,47 @@ angular.module('starter', ['ionic','ionic.wizard','ngIOS9UIWebViewPatch', 'start
                 "}";
 
             switch (stateName) {
-                case "app.productList" :
-                case "app.productDetail":
-                case "app.productCheckout":
-                case "app.clothShop" :
-                case "app.catalog" :
-                    customStyle += getProductStyle();
-                    break;
-                case "app.dropboxLogin" :
-                case "app.dropboxProfile":
-                case "app.dropboxFeed" :
-                    customStyle += getSocialNetworkStyle(window.globalVariable.color.dropboxColor);
-                    break;
-                case "app.facebookLogin" :
-                case "app.facebookProfile":
-                case "app.facebookFeed" :
-                case "app.facebookFriendList":
-                    customStyle += getSocialNetworkStyle(window.globalVariable.color.facebookColor);
-                    break;
-                case "app.foursquareLogin" :
-                case "app.foursquareProfile":
-                case "app.foursquareFeed" :
-                    customStyle += getSocialNetworkStyle(window.globalVariable.color.foursquareColor);
-                    break;
-                case "app.googlePlusLogin" :
-                case "app.googlePlusProfile":
-                case "app.googlePlusFeed" :
-                    customStyle += getSocialNetworkStyle(window.globalVariable.color.googlePlusColor);
-                    break;
-                case "app.instagramLogin" :
-                case "app.instagramProfile":
-                case "app.instagramFeed" :
-                    customStyle += getSocialNetworkStyle(window.globalVariable.color.instagramColor);
-                    break;
-                case "app.wordpressLogin" :
-                case "app.wordpressFeed":
-                case "app.wordpressPost" :
-                    customStyle += getSocialNetworkStyle(window.globalVariable.color.wordpressColor);
-                    break;
-                case "app.contractUs":
-                    customStyle += getContractUsStyle();
-                    break;
+                // case "app.productList" :
+                // case "app.productDetail":
+                // case "app.productCheckout":
+                // case "app.clothShop" :
+                // case "app.catalog" :
+                //     customStyle += getProductStyle();
+                //     break;
+                // case "app.dropboxLogin" :
+                // case "app.dropboxProfile":
+                // case "app.dropboxFeed" :
+                //     customStyle += getSocialNetworkStyle(window.globalVariable.color.dropboxColor);
+                //     break;
+                // case "app.facebookLogin" :
+                // case "app.facebookProfile":
+                // case "app.facebookFeed" :
+                // case "app.facebookFriendList":
+                //     customStyle += getSocialNetworkStyle(window.globalVariable.color.facebookColor);
+                //     break;
+                // case "app.foursquareLogin" :
+                // case "app.foursquareProfile":
+                // case "app.foursquareFeed" :
+                //     customStyle += getSocialNetworkStyle(window.globalVariable.color.foursquareColor);
+                //     break;
+                // case "app.googlePlusLogin" :
+                // case "app.googlePlusProfile":
+                // case "app.googlePlusFeed" :
+                //     customStyle += getSocialNetworkStyle(window.globalVariable.color.googlePlusColor);
+                //     break;
+                // case "app.instagramLogin" :
+                // case "app.instagramProfile":
+                // case "app.instagramFeed" :
+                //     customStyle += getSocialNetworkStyle(window.globalVariable.color.instagramColor);
+                //     break;
+                // case "app.wordpressLogin" :
+                // case "app.wordpressFeed":
+                // case "app.wordpressPost" :
+                //     customStyle += getSocialNetworkStyle(window.globalVariable.color.wordpressColor);
+                //     break;
+                // case "app.contractUs":
+                //     customStyle += getContractUsStyle();
+                //     break;
                 default:
                     customStyle += getDefaultStyle();
                     break;
@@ -237,8 +237,8 @@ angular.module('starter', ['ionic','ionic.wizard','ngIOS9UIWebViewPatch', 'start
             if (window.StatusBar) {
                 StatusBar.styleDefault();
             }
-
-            initialSQLite();
+            //
+            // initialSQLite();
             initialRootScope();
 
             //Checking if view is changing it will go to this function.
@@ -262,13 +262,13 @@ angular.module('starter', ['ionic','ionic.wizard','ngIOS9UIWebViewPatch', 'start
 
         // mdIconProvider is function of Angular Material.
         // It use for reference .SVG file and improve performance loading.
-        $mdIconProvider
-            .icon('facebook', 'img/icons/facebook.svg')
-            .icon('twitter', 'img/icons/twitter.svg')
-            .icon('mail', 'img/icons/mail.svg')
-            .icon('message', 'img/icons/message.svg')
-            .icon('share-arrow', 'img/icons/share-arrow.svg')
-            .icon('more', 'img/icons/more_vert.svg');
+        // $mdIconProvider
+        //     .icon('facebook', 'img/icons/facebook.svg')
+        //     .icon('twitter', 'img/icons/twitter.svg')
+        //     .icon('mail', 'img/icons/mail.svg')
+        //     .icon('message', 'img/icons/message.svg')
+        //     .icon('share-arrow', 'img/icons/share-arrow.svg')
+        //     .icon('more', 'img/icons/more_vert.svg');
 
         //mdThemingProvider use for change theme color of Ionic Material Design Application.
         /* You can select color from Material Color List configuration :
