@@ -1,15 +1,117 @@
-<ion-view title="Expense">
-
-  <ion-nav-buttons side="left">
-      <button class="button button-clear" ng-click="cancel()">
-        <i class="icon ion-close-round"></i>
-      </button>
-  </ion-nav-buttons>
-
+<ion-view title="Expense" class="updateExpense">
+	
+	<ion-nav-buttons side="left">
+        <button class="button icon ion-ios-arrow-back back" ng-click="backToExpenses()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">    
+        <button class="button icon ion-edit edit" ng-click="updateExpense(data.id)"></button> 
+    </ion-nav-buttons>
+	
     <ion-content>
-        //Content goes here
-        {{data}}
+       <!--  //Content goes here
+        {{data}} -->
+        <!-- <p> CONTENT </p> -->
 
-        <p>CONTNT </p>
+        <md-card>
+            <md-content layout-padding>
+            <form name="updateExpenseform">
+                
+                <md-input-container class="md-block" layout="row" layout-align="space between center">
+                    <input name="description" ng-model="data.description">
+ 		         </md-input-container>
+
+                  <md-input-container class="md-block">
+                    <span>
+                        <i class="icon ion-social-usd pad-right-10"></i>
+                        <input name="description" ng-model="data.amount">
+                    </span>
+                 </md-input-container>
+
+                  <md-input-container class="md-block">
+                    <i class="icon ion-ios-calendar-outline pad-right-10"></i>
+                    <input name="description" ng-model="data.payby">
+                 </md-input-container>
+
+                  <md-input-container class="md-block">
+                    <i class="icon ion-ios-home-outline pad-right-10"></i>
+                    <input name="description" ng-model="data.category">
+                 </md-input-container>
+
+                  <md-input-container class="md-block">
+                    <i class="icon ion-ios-reload pad-right-10"></i>
+                    <input name="description" ng-model="data.frequency">
+                 </md-input-container>
+
+                 <md-input-container class="md-block">
+                    <i class="icon ion-ios-photos-outline pad-right-10"></i>
+                    <input name="description" ng-model="data.noofinstances">
+                 </md-input-container>
+
+               </form>
+            </md-content>
+        </md-card>
+
     </ion-content>
 </ion-view>
+
+
+
+<!--         <md-card>
+            <md-content>
+
+             <form editable-form name="updateform">
+                <div layout="row" class="row-item layout-align-space-between-center layout-row" layout-align="space between center">
+                      <div layout="row" class="row-item-detail layout-row">
+                         <p>{{data.description}}</p>
+<!--                    <input ng-model="data.description">
+                  </div>
+                </div>
+
+                <div layout="row" class="row-item layout-align-space-between-center layout-row" layout-align="space between center">
+                     <div layout="row" class="row-item-detail layout-row">
+                         <!-- <md-input-container> 
+                         <i class="icon ion-social-usd pad-right-10"></i>
+                         <p>{{data.amount}}</p>
+                     
+                            <input ng-model="data.amount">
+                         </md-input-container>  
+                     </div>
+                </div>
+
+                
+                
+                <div layout="row" class="row-item layout-align-space-between-center layout-row" layout-align="space between center">     
+                   <div layout="row" class="row-item-detail layout-row">
+                         <i class="icon ion-ios-calendar-outline pad-right-10"></i>
+                         <p>{{data.payby | date:'MMM dd'}}</p>
+                       <input ng-model="data.payby">
+                    </div>
+                </div>
+                
+                <div layout="row" class="row-item layout-align-space-between-center layout-row" layout-align="space between center">     
+                   <div layout="row" class="row-item-detail layout-row">
+                         <i class="icon ion-ios-home-outline pad-right-10"></i>
+                         <p>{{data.category}}</p>
+                           <input ng-model="data.category">
+                   </div>
+                </div>
+                     
+                <div layout="row" class="row-item layout-align-space-between-center layout-row" layout-align="space between center">
+                   <div layout="row" class="row-item-detail layout-row">
+                         <i class="icon ion-ios-reload pad-right-10"></i>
+                         <p>{{data.frequency}}</p>
+                       <input ng-model="data.frequency"> 
+                    </div>   
+                </div>     
+
+                <div layout="row" class="row-item layout-align-space-between-center layout-row" layout-align="space between center">
+                 <div layout="row" class="row-item-detail layout-row">
+                     <i class="icon ion-ios-photos-outline pad-right-10"></i>
+                     <p>{{data.noofinstances}}</p>
+                    <input ng-model="data.noofinstances">  
+                </div>               
+               </div>
+           </form>
+
+            </md-content>
+        </md-card> -->
