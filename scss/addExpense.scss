@@ -1,0 +1,42 @@
+  @import "main";
+
+  .md-chips {
+    display: block;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px !important;
+    padding: 0 0 0px 3px !important;
+    vertical-align: middle;
+    margin-top: -5% !important;
+  }
+
+  .wizard-input{
+  margin-top: 20% !important;
+  }
+
+.wizard .md-datepicker-input-container {
+    position: relative;
+    padding-bottom: 5px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    display: inline-block;
+    width: 245px;
+    margin-left: -4px !important;
+    padding-left: 0% !important;
+}
+
+.wizard .md-datepicker-button {
+    display: inline-block;
+    box-sizing: border-box;
+    background: none;
+    padding-left: 0% !important;
+}
+
+ md-list-item, md-list-item .wizard .md-list-item-inner{
+    min-height:35px !important;
+    border-bottom: 2px solid #E0E0E0 !important;
+
+}
+
+.wizard > p{
+    margin:0 0 -5px -6px !important;
+}

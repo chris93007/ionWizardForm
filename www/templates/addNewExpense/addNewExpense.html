@@ -1,4 +1,4 @@
-<ion-view title="Add New Expense" id="page8" class="" hide-tabs cache-view="false">
+<ion-view title="Add Expense" id="page8" class="" hide-tabs cache-view="false">
     <ion-nav-buttons side="left">
         <button class="button button-clear" ng-click="cancel()">
           <i class="icon ion-close-round"></i>
@@ -21,14 +21,16 @@
 
         <md-card style="margin-top:25%;height:60%">
           <md-content layout-padding="">
-            <md-input-container class="md-block">
-              <label style="padding-left:3%">Description</label>
-              <input md-maxlength="50" required="" md-no-asterisk="" name="description" ng-model="expenseInfo.description">
-              <div ng-messages="projectForm.description.$error">
-                <div ng-message="required">This is required.</div>
-                <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
-              </div>
-            </md-input-container>
+            <form name="descForm">
+              <md-input-container class="md-block">
+                <label >Description</label>
+                <input md-maxlength="50" required="" md-no-asterisk="" name="description" ng-model="expenseInfo.description">
+                <div ng-messages="descForm.description.$error">
+                  <div ng-message="required">This is required.</div>
+                  <div ng-message="md-maxlength">The name has to be less than 50 characters long.</div>
+                </div>
+              </md-input-container>
+            </form>
           </md-content>
         </md-card>
 
@@ -37,86 +39,133 @@
       <ion-slide-page ion-wizard-step next-condition="expenseInfo.category" prev-condition="!expenseInfo.category">
 
         <md-card style="margin-top:25%;height:60%">
-          <md-content layout-padding="">
-            <md-chips ng-model="selectedCategory" md-autocomplete-snap md-require-match="true">
-                <md-autocomplete ng-disabled="disable"
-                                 md-search-text="searchText"
-                                 md-items="item in queryGroups(searchText)"
-                                 md-item-text="item.title"
-                                 md-autoselect="true"
-                                 md-select-on-match="true"
-                                 md-no-cache="true"
-                                 md-require-match="true"
-                                 placeholder="Category">
-                    <span md-highlight-text="searchText">{{item.title}}</span>
-                </md-autocomplete>
-                <md-chip-template>
-                    <span>{{$chip.title}}</span>
-                </md-chip-template>
-            </md-chips>
+          <md-content layout-padding="" style="padding:5%">
+            <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="expenseInfo.category" md-search-text-change="searchTextChange(searchText)"
+                  md-search-text="searchText" md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)"
+                    md-item-text="item.title" md-min-length="0" md-floating-label="Category">
+              <md-item-template>
+                <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.title}}</span>
+              </md-item-template>
+              <md-not-found>
+                  <a ng-click="newState(searchText)">Create a new category {{searchText}} ?</a>
+              </md-not-found>
+            </md-autocomplete>
           </md-content>
-        </md-card>yu
+        </md-card>
 
       </ion-slide-page>
 
       <ion-slide-page ion-wizard-step next-condition="expenseInfo.frequency &&expenseInfo.noofinstances" prev-condition="!expenseInfo.frequency">
-
         <md-card style="margin-top:25%;height:60%">
-          <md-content layout-padding="">
-                <md-chips ng-model="selectedFrequency" md-autocomplete-snap md-require-match="true">
-                    <md-autocomplete ng-disabled="disable2"
-                                     md-search-text="searchText"
-                                     md-items="item in queryGroups(searchText)"
-                                     md-item-text="item.title"
-                                     md-autoselect="true"
-                                     md-select-on-match="true"
-                                     md-no-cache="true"
-                                     md-require-match="true"
-                                     placeholder="Frequency">
-                        <span md-highlight-text="searchText">{{item.title}}</span>
-                    </md-autocomplete>
-                    <md-chip-template>
-                        <span>{{$chip.title}}</span>
-                    </md-chip-template>
-                </md-chips>
-              </md-input-container>
-              <md-input-container md-no-float="" class="md-list-item-full-width">
-                  <input type="number" placeholder="Number of Instances" ng-model="expenseInfo.noofinstances">
-              </md-input-container>
-            </md-content>
-          </md-card>
+          <md-content layout-padding="" >
+            <form name="frequencyForm">
+                <md-input-container class="md-block">
+                  <p>Frequency: <span class="radioValue">{{ expenseInfo.frequency.title }}</span> </p>
+                  <md-radio-group ng-model="expenseInfo.frequency" ng-repeat="frequency in frequencies">
+                    <md-radio-button ng-value="{{frequency}}" class="md-primary">{{frequency.title}}</md-radio-button>
+                  </md-radio-group>
+                </md-input-container>
 
+                <md-input-container class="md-block">
+                    <label>Number of Instances</label>
+                    <input required="" name="instances" type="number" ng-model="expenseInfo.noofinstances" min="1" max="100">
+
+                    <div ng-messages="frequencyForm.instances.$error" multiple="" md-auto-hide="false">
+                      <div ng-message="required">
+                        You've got to enter the Number of Instances.
+                      </div>
+                      <div ng-message="min">
+                        Number of Instances should be atleast 1.
+                      </div>
+                      <div ng-message="max">
+                          Number of Instances should be less than 100.
+                      </div>
+                    </div>
+                  </md-input-container>
+                </form>
+          </md-content>
+        </md-card>
       </ion-slide-page>
 
-              <ion-slide-page ion-wizard-step next-condition="expenseInfo.amount" prev-condition="!expenseInfo.amount">
-                <div class="chipsdemoContactChips">
-                    <ion-content id="default-input-content"  style="margin:10%">
-                        <md-input-container md-no-float="" class="md-list-item-full-width">
-                            <input type="number" placeholder="Amount" ng-model="expenseInfo.amount">
-                        </md-input-container>
-                    </ion-content>
-                </div>
-              </ion-slide-page>
+      <ion-slide-page ion-wizard-step next-condition="expenseInfo.amount" prev-condition="!expenseInfo.amount">
+        <md-card style="margin-top:25%;height:60%">
+          <md-content layout-padding="">
+            <form name="amountForm">
+                <md-input-container class="md-block">
+                    <label>Amount</label>
+                    <input required="" name="instances" type="number" ng-model="expenseInfo.amount" min="1">
 
+                    <div ng-messages="amountForm.instances.$error" multiple="" md-auto-hide="false">
+                      <div ng-message="required">
+                        You've got to enter the Amount.
+                      </div>
+                      <div ng-message="min">
+                        Amount should be atleast 1.
+                      </div>
+                    </div>
+                  </md-input-container>
+                </form>
+          </md-content>
+        </md-card>
+      </ion-slide-page>
 
-              <ion-slide-page ion-wizard-step next-condition="expenseInfo.payby" prev-condition="!expenseInfo.payby">
+      <ion-slide-page ion-wizard-step next-condition="expenseInfo.payby" prev-condition="!expenseInfo.payby">
+        <md-card style="margin-top:25%;height:60%">
+          <md-content layout-padding="" style=" padding-top: 8%;" class="wizard">
+              <md-datepicker ng-model="expenseInfo.payby" md-placeholder="Enter the Pay By Date">
+              </md-datepicker>
+          </md-content>
+        </md-card>
+     </ion-slide-page>
 
-                    <ion-content id="default-input-content" style="margin:10%">
-                        <label class="item item-input">
-                          <span class="input-label">Pay By Date</span>
-                          <input type="date" ng-model="expenseInfo.payby">
-                        </label>
-                    </ion-content>
+     <ion-slide-page ion-wizard-step class="has-header">
+       <md-card style="margin-top:25%;height:60%">
+         <md-content layout-padding="" style=" padding-top: 8%;" class="wizard">
+           <md-list class="wizard">
+             <md-subheader class="md-no-sticky">New Expense</md-subheader>
+             <md-list-item>
+                 <div class="md-list-item-text wizard" layout="column">
+                   <p>{{expenseInfo.description}}</p>
+                 </div>
+              </md-list-item>
+              <md-list-item>
+                 <div class="md-list-item-text wizard" layout="column">
+                   <p>{{expenseInfo.category.title}}</p>
+                 </div>
+               </md-list-item>
+               <md-list-item>
+                 <div class="md-list-item-text wizard" layout="column">
+                   <p>{{expenseInfo.frequency.title}}</p>
+                 </div>
+               </md-list-item>
+               <md-list-item>
+                   <div class="md-list-item-text wizard" layout="column">
+                     <p>{{expenseInfo.noofinstances}}</p>
+                   </div>
+               </md-list-item>
+               <md-list-item>
+                   <div class="md-list-item-text wizard" layout="column">
+                     <p>{{expenseInfo.amount}}</p>
+                   </div>
+               </md-list-item>
+               <md-list-item>
+                   <div class="md-list-item-text wizard" layout="column">
+                     <p>{{expenseInfo.payby}}</p>
+                   </div>
+             </md-list-item>
+           </md-list>
+        </md-content>
+      </md-card>
 
-              </ion-slide-page>
-              <ion-slide-page ion-wizard-step class="has-header">
-                  <div id="expensesInner1">{{expenseInfo.description}}</div><br>
-                  <div id="expensesInner1">{{expenseInfo.category.title}}</div><br>
-                  <div id="expensesInner1">{{expenseInfo.frequency.title}}</div><br>
-                  <div id="expensesInner1">{{expenseInfo.noofinstances}}</div><br>
-                  <div id="expensesInner1">{{expenseInfo.amount}}</div><br>
-                  <div id="expensesInner1">{{expenseInfo.payby}}</div><br>
-              </ion-slide-page>
-    </ion-slides>
+    </ion-slide-page>
+
+  </ion-slides>
 
 </ion-view>
+
+<!-- /*<style>
+.md-virtual-repeat-container.md-not-found {
+    height: 148px !important;
+
+   }
+</style>*/ -->
